@@ -89,6 +89,9 @@ img {
     }
   }
   &-inner {
+    background: $bg-image no-repeat 20% 30% / cover;
+    height: 5.5rem;
+    border-bottom: 3px solid $main-color;
   }
 }
 
@@ -186,6 +189,89 @@ img {
           }
         }
       }
+    }
+  }
+}
+
+// About sections
+
+#about {
+  &-a {
+    // The following bit is where I tried to make the image change from black and white to color
+    // .bio-image {
+    //   background: $bio-image_bnw no-repeat center center / cover;
+    //   height: 427px;
+    //   width: 640px;
+    //   transition: background 4s ease-out;
+
+    //   &:hover {
+    //     background: $bio-image_vibrant no-repeat center center / cover;
+    //     height: 427px;
+    //     width: 640px;
+    //   }
+    // }
+    // This bit worked... but the images were glitchy on hover
+    // #bio-image-bnw {
+    //   + img {
+    //     position: relative;
+    //     visibility: hidden;
+    //   }
+
+    //   &:hover {
+    //     + img {
+    //       visibility: visible;
+
+    //       &:hover {
+    //         visibility: visible;
+    //         z-index: 10;
+    //       }
+    //     }
+    //   }
+    // }
+
+    // This transition bit here works like a charm
+    .bio-image {
+      filter: grayscale(100%);
+      transition: filter 0.3s ease-in;
+
+      &:hover {
+        filter: grayscale(0%);
+      }
+    }
+    .about-info {
+      display: grid;
+      grid-template-areas:
+        "bioimage bio bio"
+        "aw1 aw2 aw3";
+      gap: 1.2rem;
+    }
+
+    // grid area
+    .bio-image {
+      grid-area: bioimage;
+    }
+
+    .bio {
+      grid-area: bio;
+      border-left: 3px solid $main-color;
+      padding: 0.8rem;
+    }
+
+    .award-1 {
+      grid-area: aw1;
+    }
+    .award-2 {
+      grid-area: aw2;
+    }
+    .award-3 {
+      grid-area: aw3;
+    }
+
+    .award-1 .fas,
+    .award-2 .fas,
+    .award-3 .fas {
+      color: $main-color;
+      margin: 1rem;
     }
   }
 }
