@@ -466,6 +466,9 @@ img {
   color: #fff;
   height: 5rem;
 }
+#main-footer .container {
+  padding: 0;
+}
 #main-footer .footer-content {
   display: flex;
   justify-content: space-between;
